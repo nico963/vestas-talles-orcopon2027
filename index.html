@@ -1,0 +1,1789 @@
+<title>Talles Ropa 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — Vestas Workwear 2027
+   Layout: full-height app, vertical scroll, card per garment
+   Palette: Vestas navy anchor, sky-blue accent, clean surfaces
+   ============================================================ */
+:root {
+  --bg:             #EDF1F7;
+  --surface:        #FFFFFF;
+  --surface-2:      #E4ECF6;
+  --border:         #C6D4E8;
+  --border-strong:  #A5BCE0;
+  --fg:             #0A1A2E;
+  --fg-2:           #3D5570;
+  --fg-3:           #6B8AA8;
+  --accent:         #00509D;
+  --accent-dark:    #003E7A;
+  --accent-light:   #DDE9F8;
+  --accent-fg:      #FFFFFF;
+  --vestas-blue:    #009FE3;
+  --success:        #046D3A;
+  --success-light:  #D4F0E2;
+  --danger:         #B01A1A;
+  --danger-light:   #FDEBEB;
+  --warn:           #7A4A00;
+  --warn-light:     #FEF3DC;
+  --header-bg:      #002554;
+  --shadow-xs:      0 1px 2px rgba(0,37,84,.06);
+  --shadow-sm:      0 2px 6px rgba(0,37,84,.08);
+  --shadow:         0 4px 16px rgba(0,37,84,.10);
+  --shadow-lg:      0 8px 32px rgba(0,37,84,.14);
+  --radius:         14px;
+  --radius-sm:      8px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:            #08101D;
+    --surface:       #101E30;
+    --surface-2:     #192B42;
+    --border:        #243D5C;
+    --border-strong: #315278;
+    --fg:            #E6EEF8;
+    --fg-2:          #7FA0C0;
+    --fg-3:          #4E738F;
+    --accent:        #3D8EE0;
+    --accent-dark:   #5AAAF0;
+    --accent-light:  #122444;
+    --accent-fg:     #FFFFFF;
+    --vestas-blue:   #009FE3;
+    --success:       #0FA05A;
+    --success-light: #052A18;
+    --danger:        #E05252;
+    --danger-light:  #2A0808;
+    --warn:          #E0A030;
+    --warn-light:    #2A1A00;
+    --header-bg:     #050E1A;
+    --shadow-xs:     0 1px 2px rgba(0,0,0,.4);
+    --shadow-sm:     0 2px 6px rgba(0,0,0,.4);
+    --shadow:        0 4px 16px rgba(0,0,0,.45);
+    --shadow-lg:     0 8px 32px rgba(0,0,0,.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:            #08101D;
+  --surface:       #101E30;
+  --surface-2:     #192B42;
+  --border:        #243D5C;
+  --border-strong: #315278;
+  --fg:            #E6EEF8;
+  --fg-2:          #7FA0C0;
+  --fg-3:          #4E738F;
+  --accent:        #3D8EE0;
+  --accent-dark:   #5AAAF0;
+  --accent-light:  #122444;
+  --accent-fg:     #FFFFFF;
+  --vestas-blue:   #009FE3;
+  --success:       #0FA05A;
+  --success-light: #052A18;
+  --danger:        #E05252;
+  --danger-light:  #2A0808;
+  --warn:          #E0A030;
+  --warn-light:    #2A1A00;
+  --header-bg:     #050E1A;
+  --shadow-xs:     0 1px 2px rgba(0,0,0,.4);
+  --shadow-sm:     0 2px 6px rgba(0,0,0,.4);
+  --shadow:        0 4px 16px rgba(0,0,0,.45);
+  --shadow-lg:     0 8px 32px rgba(0,0,0,.5);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100%;
+  padding-left:  max(16px, env(safe-area-inset-left,  0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-bottom: 48px;
+}
+
+/* ── HEADER ──────────────────────────────────────────── */
+.header {
+  background: var(--header-bg);
+  color: #fff;
+  margin-left:  calc(-1 * max(16px, env(safe-area-inset-left,  0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding: 0 max(20px, env(safe-area-inset-left, 0px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 64px;
+  margin-bottom: 20px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  background: var(--vestas-blue);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-sub {
+  font-size: 11px;
+  opacity: .6;
+  letter-spacing: .04em;
+}
+
+.header-nav {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.tab-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: 1.5px solid rgba(255,255,255,.25);
+  background: transparent;
+  color: rgba(255,255,255,.65);
+  transition: all .15s;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  border-color: rgba(255,255,255,.5);
+}
+
+/* ── SCREENS ─────────────────────────────────────────── */
+.screen { display: none }
+.screen.active { display: block }
+
+/* ── LOGIN ───────────────────────────────────────────── */
+.login-wrap {
+  max-width: 400px;
+  margin: 32px auto 0;
+}
+
+.login-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 36px 28px 32px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.login-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.login-h {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-wrap: balance;
+  margin-bottom: 6px;
+}
+
+.login-desc {
+  color: var(--fg-2);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--fg-3);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.field-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-align: center;
+  background: var(--surface);
+  color: var(--fg);
+  outline: none;
+  transition: border-color .15s;
+}
+.field-input:focus { border-color: var(--accent) }
+.field-input.error  { border-color: var(--danger) }
+
+.field-hint {
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-top: 6px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: none;
+  transition: all .15s;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-fg);
+  width: 100%;
+}
+.btn-primary:hover:not(:disabled) { background: var(--accent-dark) }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed }
+
+.btn-outline {
+  background: transparent;
+  color: var(--fg-2);
+  border: 1.5px solid var(--border);
+  width: 100%;
+}
+.btn-outline:hover { background: var(--surface-2) }
+
+/* ── FORM SCREEN ─────────────────────────────────────── */
+.form-topbar {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.form-greeting { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700 }
+.form-desc { font-size: 13px; color: var(--fg-2); margin-top: 2px }
+
+.initials-pill {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: .1em;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.initials-pill:hover { background: var(--border) }
+
+/* progress */
+.progress-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-xs);
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-3);
+  margin-bottom: 8px;
+}
+
+.progress-track {
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--vestas-blue));
+  border-radius: 3px;
+  transition: width .5s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── GARMENT CARD ────────────────────────────────────── */
+.g-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.g-card.done  { border-color: var(--success) }
+.g-card.open  { border-color: var(--accent); box-shadow: var(--shadow-sm) }
+
+.g-header {
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.g-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  background: var(--surface-2);
+  color: var(--fg-2);
+  transition: all .2s;
+}
+.g-card.done .g-num {
+  background: var(--success);
+  color: #fff;
+}
+
+.g-text { flex: 1; min-width: 0 }
+.g-name { font-weight: 600; font-size: 14px; color: var(--fg) }
+.g-sel  { font-size: 12px; color: var(--accent); font-weight: 700; margin-top: 2px; font-family: 'Montserrat', sans-serif }
+.g-none { font-size: 12px; color: var(--fg-3); margin-top: 2px }
+
+.g-chevron {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--fg-3);
+  transition: transform .2s;
+}
+.g-card.open .g-chevron { transform: rotate(180deg) }
+
+.g-body { display: none; padding: 0 18px 18px }
+.g-card.open .g-body { display: block }
+
+.guide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.guide-table-wrap { overflow-x: auto; margin-bottom: 14px }
+
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 340px;
+  font-variant-numeric: tabular-nums;
+}
+.guide-table th {
+  padding: 7px 12px;
+  background: var(--surface-2);
+  color: var(--fg-2);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  text-align: left;
+}
+.guide-table th:first-child { border-radius: 6px 0 0 6px }
+.guide-table th:last-child  { border-radius: 0 6px 6px 0 }
+.guide-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg);
+}
+.guide-table tr:last-child td { border-bottom: none }
+
+/* SIZE BUTTONS */
+.size-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.size-btn {
+  padding: 10px 16px;
+  min-width: 52px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all .12s;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.size-btn:hover    { border-color: var(--accent); color: var(--accent); background: var(--accent-light) }
+.size-btn.selected { background: var(--accent); border-color: var(--accent); color: var(--accent-fg) }
+.size-btn.closest  { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-light) }
+
+/* Two-line size button (pantalon / primera piel) */
+.size-btn-2line { flex-direction: column; gap: 2px; padding: 8px 12px; min-width: 72px; line-height: 1.2 }
+.size-main { font-size: 14px; font-weight: 700; color: inherit }
+.size-sub  { font-size: 10px; color: var(--fg-3); font-weight: 500 }
+.size-btn-2line.selected .size-sub { color: rgba(255,255,255,.75) }
+.size-btn-2line.closest  .size-sub { color: var(--accent) }
+
+/* Measurement finder */
+.size-finder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  flex-wrap: wrap;
+}
+.size-finder label { font-size: 12px; color: var(--fg-2); white-space: nowrap }
+.size-finder input {
+  width: 80px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+.size-finder input:focus { outline: none; border-color: var(--accent) }
+.size-finder .finder-result { font-size: 12px; color: var(--accent); font-weight: 600 }
+
+.textarea-field {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  background: var(--surface);
+  color: var(--fg);
+  resize: vertical;
+  min-height: 80px;
+  outline: none;
+  transition: border-color .15s;
+}
+.textarea-field:focus { border-color: var(--accent) }
+
+/* SUBMIT AREA */
+.submit-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-top: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.alert-box {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  display: none;
+}
+.alert-danger { background: var(--danger-light); color: var(--danger) }
+.alert-warn   { background: var(--warn-light);   color: var(--warn)   }
+
+.chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.chip.missing { background: var(--danger-light); color: var(--danger) }
+
+/* ── SUCCESS SCREEN ──────────────────────────────────── */
+.success-wrap {
+  max-width: 440px;
+  margin: 32px auto 0;
+}
+
+.success-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 36px 28px 32px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--success-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.success-h { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 6px }
+.success-sub { color: var(--fg-2); font-size: 14px; margin-bottom: 24px }
+
+.sel-summary {
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.sel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  gap: 8px;
+}
+.sel-row:last-child { border-bottom: none }
+.sel-key { color: var(--fg-2); font-weight: 500 }
+.sel-val {
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: .05em;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 3px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
+/* ── SUPERVISOR SCREEN ───────────────────────────────── */
+.sup-wrap { max-width: 920px; margin: 0 auto }
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--fg-3);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.kpi-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-xs);
+  flex: 1;
+  min-width: 120px;
+}
+.kpi-num   { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums }
+.kpi-label { font-size: 12px; color: var(--fg-2); font-weight: 500 }
+
+.tbl-wrap {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: auto;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+}
+
+.sup-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  min-width: 440px;
+}
+.sup-table th {
+  padding: 11px 14px;
+  background: var(--surface-2);
+  color: var(--fg-2);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  border-bottom: 2px solid var(--border);
+  text-align: center;
+  white-space: nowrap;
+}
+.sup-table th:first-child { text-align: left }
+.sup-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  color: var(--fg);
+}
+.sup-table td:first-child { text-align: left; font-weight: 600 }
+.sup-table tr:last-child td { border-bottom: none }
+
+.cnt { font-weight: 800; font-size: 15px; color: var(--accent) }
+.cnt-zero { color: var(--border-strong); font-weight: 400 }
+.cnt-total { font-weight: 700; color: var(--fg) }
+
+.info-box {
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.info-accent { background: var(--accent-light); color: var(--accent) }
+.info-warn   { background: var(--warn-light);   color: var(--warn);  margin-top: 12px }
+
+.webhook-note {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-top: 12px;
+  box-shadow: var(--shadow-xs);
+  font-size: 13px;
+}
+.webhook-note code {
+  background: var(--surface-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  color: var(--accent);
+}
+.webhook-configured { color: var(--success); font-weight: 600 }
+.webhook-missing    { color: var(--danger);  font-weight: 600 }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--fg-3);
+}
+.empty-state svg { margin-bottom: 12px; opacity: .4 }
+.empty-state p { font-size: 14px }
+
+/* ── UTIL ────────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .header-title { font-size: 14px }
+  .header-sub   { display: none }
+  .tab-btn      { padding: 5px 10px; font-size: 12px }
+  .login-card   { padding: 28px 18px }
+  .success-card { padding: 28px 16px 24px }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important }
+}
+</style>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+  <div class="header-brand">
+    <div class="brand-mark">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="2.8" fill="white"/>
+        <line x1="13" y1="10" x2="13" y2="2"   stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="10.6" y1="14.5" x2="4.2" y2="18" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="15.4" y1="14.5" x2="21.8" y2="18" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="header-title">Talles de Ropa 2027</div>
+      <div class="header-sub">Vestas Wind Systems</div>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <button class="tab-btn active" id="tab-tecnico"     onclick="showTab('tecnico')">Técnico</button>
+    <button class="tab-btn"        id="tab-supervisor"  onclick="showTab('supervisor')">Supervisión</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ========== SCREEN: LOGIN ========== -->
+<div class="screen active" id="screen-login">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-avatar">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+          <circle cx="19" cy="15" r="7" stroke="var(--accent)" stroke-width="2.2"/>
+          <path d="M6 34c0-7.18 5.82-13 13-13s13 5.82 13 13" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1 class="login-h">Registro de Talles</h1>
+      <p class="login-desc">Ingresá tus iniciales Vestas para seleccionar o actualizar tus talles 2027.</p>
+
+      <label class="field-label" for="inp-nombre">Nombre completo <span style="color:var(--accent)">*</span></label>
+      <input class="field-input" id="inp-nombre" type="text" maxlength="50"
+             placeholder="Juan García" autocomplete="name" spellcheck="false">
+
+      <label class="field-label" for="inp-initials" style="margin-top:12px">Iniciales Vestas (opcional)</label>
+      <input class="field-input" id="inp-initials" type="text" maxlength="5"
+             placeholder="NOLRE" autocomplete="off" autocapitalize="characters" spellcheck="false">
+      <p class="field-hint">Si tenés SAP · Ej: NOLRE — dejá vacío si no tenés</p>
+
+      <button class="btn btn-primary" id="btn-login" onclick="doLogin()">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <path d="M3.5 8.5h10M9 4l5 4.5L9 13"/>
+        </svg>
+        Ingresar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN: FORM ========== -->
+<div class="screen" id="screen-form">
+  <div class="form-topbar">
+    <div>
+      <div class="form-greeting">Seleccioná tus talles para 2027</div>
+      <div class="form-desc">Tocá cada prenda, consultá la guía y elegí tu talle</div>
+    </div>
+    <button class="initials-pill" id="pill-initials" onclick="doLogout()" title="Cambiar usuario">NOLRE</button>
+  </div>
+
+  <div class="progress-card">
+    <div class="progress-meta">
+      <span>Prendas completadas</span>
+      <span id="prog-text">0 de 9</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="garments-container"></div>
+
+  <div class="submit-card">
+    <div class="alert-box alert-danger" id="warn-missing"></div>
+    <div class="chips-row" id="chips-row"></div>
+    <button class="btn btn-primary" id="btn-submit" onclick="doSubmit()">
+      <svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 8.5l4.5 4.5 7-7"/>
+      </svg>
+      Guardar mis talles
+    </button>
+  </div>
+</div>
+
+<!-- ========== SCREEN: SUCCESS ========== -->
+<div class="screen" id="screen-success">
+  <div class="success-wrap">
+    <div class="success-card">
+      <div class="success-icon">
+        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" stroke="var(--success)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 21l9 9 17-17"/>
+        </svg>
+      </div>
+      <h2 class="success-h">¡Talles guardados!</h2>
+      <p class="success-sub" id="success-msg">Tus talles fueron registrados para 2027.</p>
+      <div class="sel-summary" id="success-summary"></div>
+      <button class="btn btn-outline" onclick="doEdit()">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 2l3 3L5 13H2v-3L10 2z"/>
+        </svg>
+        Editar mis talles
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN: SUPERVISOR ========== -->
+<div class="screen" id="screen-supervisor">
+  <div class="sup-wrap">
+
+    <div class="section-eyebrow">Resumen general</div>
+    <div class="kpi-row" id="kpi-row">
+      <div class="kpi-card"><div class="kpi-num" id="kpi-total">—</div><div class="kpi-label">Técnicos registrados</div></div>
+      <div class="kpi-card"><div class="kpi-num" id="kpi-completos">—</div><div class="kpi-label">Registros completos</div></div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top:20px">Conteo por prenda</div>
+    <div id="sup-tables"></div>
+
+    <div class="info-box info-warn" id="sup-offline-note" style="display:none;margin-top:4px">
+      <strong>Modo sin conexión:</strong> Mostrando datos guardados localmente en este dispositivo. Los datos de otros técnicos no están disponibles.
+    </div>
+    <div class="webhook-note" id="sup-db-status">
+      <strong>Base de datos:</strong> <span id="db-status-msg"><span class="webhook-missing">Conectando…</span></span><br><br>
+      Los registros de todos los técnicos se guardan automáticamente en la base de datos compartida de este link. Cualquier cambio se refleja en tiempo real para todos los dispositivos.
+    </div>
+
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-outline" style="width:auto" onclick="loadSupervisor()">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M13 7A6 6 0 112 7"/><path d="M13 3v4h-4"/>
+        </svg>
+        Actualizar
+      </button>
+      <button class="btn btn-primary" style="width:auto" onclick="exportExcel()">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7.5 10V2M4 7l3.5 3.5L11 7"/><rect x="1" y="12" width="13" height="2" rx="1"/>
+        </svg>
+        Exportar Excel
+      </button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+/* ================================================
+   CONFIGURACIÓN — Power Automate Webhook
+   ================================================ */
+// Pegá aquí la URL del flujo de Power Automate una vez creado
+const WEBHOOK_URL = '';
+
+/* ================================================
+   STORAGE LOCAL (caché + fallback sin conexión)
+   ================================================ */
+const STORE_KEY = 'vestas_talles_2027';
+
+function localGet() {
+  try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}') } catch(e) { return {} }
+}
+function localSave(key, data) {
+  try {
+    const all = localGet();
+    all[key] = data;
+    localStorage.setItem(STORE_KEY, JSON.stringify(all));
+  } catch(e) {}
+}
+
+/* Cargar talles de un técnico (webhook → localStorage) */
+async function dbLoad(ini) {
+  if (WEBHOOK_URL) {
+    try {
+      const r = await fetch(WEBHOOK_URL + '?iniciales=' + encodeURIComponent(ini));
+      if (r.ok) { const d = await r.json(); if (d && d.iniciales) return d; }
+    } catch(e) { console.warn('webhook load error', e); }
+  }
+  return localGet()[ini] || null;
+}
+
+/* Guardar talles de un técnico */
+async function dbSave(ini, nom, selData, fecha) {
+  const garmentIds = ['mamelucos','chomba','campera_abrigo','camisa','primera_piel','camp_liviana','pantalon','calzado','medias','varios'];
+  const flat = { iniciales: ini, nombre: nom, fecha };
+  garmentIds.forEach(id => { flat[id] = selData[id] || ''; });
+  const payload = { iniciales: ini, nombre: nom, fecha, sel: selData };
+  if (WEBHOOK_URL) {
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(flat)
+      });
+    } catch(e) { console.warn('webhook save error', e); }
+  }
+  localSave(ini, payload);
+}
+
+/* Cargar todos los registros (supervisor) */
+async function dbLoadAll() {
+  if (WEBHOOK_URL) {
+    try {
+      const r = await fetch(WEBHOOK_URL + '?all=1');
+      if (r.ok) {
+        const data = await r.json();
+        if (Array.isArray(data)) return data.map(d => [d.iniciales, d]);
+      }
+    } catch(e) { console.warn('webhook loadAll error', e); }
+  }
+  return Object.entries(localGet());
+}
+
+/* Cargar supervisor (refresco manual, sin tiempo real) */
+function subscribeSupervisor(renderFn) {
+  dbLoadAll().then(entries => {
+    renderFn(entries);
+    if (WEBHOOK_URL) {
+      document.getElementById('db-status-msg').innerHTML = '<span class="webhook-configured">✓ Webhook conectado</span>';
+    } else {
+      document.getElementById('sup-offline-note').style.display = '';
+      document.getElementById('db-status-msg').innerHTML = '<span class="webhook-missing">Sin webhook — mostrando datos locales</span>';
+    }
+  });
+}
+function unsubscribeSupervisor() {}
+
+/* ================================================
+   EXPORTAR A EXCEL (CSV descargable)
+   ================================================ */
+async function exportExcel() {
+  const entries = await dbLoadAll();
+  if (!entries.length) {
+    alert('No hay datos registrados para exportar.');
+    return;
+  }
+
+  const headers = [
+    'Iniciales','Nombre','Fecha','Mamelucos','Chomba ML','Campera Abrigo',
+    'Camisa ML','Primera Piel','Camp. Liviana y Chaleco','Pantalón',
+    'Calzado EU','Medias','Varios'
+  ];
+  const garmentIds = [
+    'mamelucos','chomba','campera_abrigo','camisa','primera_piel',
+    'camp_liviana','pantalon','calzado','medias','varios'
+  ];
+  const rows = entries.map(([ini, entry]) => {
+    const s = entry.sel || {};
+    return [ini, entry.nombre || '', entry.fecha || '', ...garmentIds.map(id => s[id] || '')];
+  });
+
+  // BOM para que Excel abra tildes correctas
+  const BOM = '﻿';
+  const csv = BOM + [headers, ...rows]
+    .map(row => row.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(','))
+    .join('\r\n');
+
+  const fecha = new Date().toLocaleDateString('es-AR').replace(/\//g,'-');
+  const filename = `Talles_Ropa_2027_${fecha}.csv`;
+
+  _csvFallback(csv, filename);
+}
+
+function _csvFallback(csv, filename) {
+  const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
+  const a = Object.assign(document.createElement('a'), { href: url, download: filename });
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ================================================
+   DATOS — talles y prendas
+   ================================================ */
+// Talles y guías reales por prenda (datos del Excel Vestas 2027)
+const GARMENT_DATA = {
+  mamelucos: {
+    sizes: ['XS','S','M','L','XL','XXL','3XL'],
+    guideHeaders: ['Talle','Pecho A (cm)','Manga B (cm)','Lar. Espalda C (cm)','Tiro D (cm)'],
+    guideRows: [
+      ['XS','51','81','93.5','79'],
+      ['S', '57','83','96.5','79'],
+      ['M', '61','85','98.5','79'],
+      ['L', '65','87','100.5','79'],
+      ['XL','71','89','103.5','79'],
+      ['XXL','75','91','105.5','79'],
+      ['3XL','79','93','107.5','79'],
+    ],
+    note:'Mameluco Invierno Térmico. Medidas en cm.'
+  },
+  chomba: {
+    sizes: ['S','M','L','XL','XXL','3XL','4XL'],
+    guideHeaders: ['Talle','Pecho A (cm)','Lar. Espalda B (cm)','Manga ext. C (cm)'],
+    guideRows: [
+      ['S', '100','76','57'],
+      ['M', '108','76','58'],
+      ['L', '116','76','59'],
+      ['XL','128','76','60'],
+      ['XXL','139','76','61'],
+      ['3XL','144','78','62'],
+      ['4XL','152','78','63'],
+    ],
+    note:'Chomba Manga Larga. Medidas en cm.'
+  },
+  campera_abrigo: {
+    sizes: ['S','M','L','XL','XXL','3XL'],
+    guideHeaders: ['Talle','Pecho A (cm)','Lar. Espalda B (cm)','Manga C (cm)'],
+    guideRows: [
+      ['S', '113','77','88'],
+      ['M', '121','78','89'],
+      ['L', '129','79','90'],
+      ['XL','137','86','91'],
+      ['XXL','149','80','92'],
+      ['3XL','157','81','93'],
+    ],
+    note:'Campera de Abrigo. Manga medida 12 cm bajo cuello. Medidas en cm.'
+  },
+  camisa: {
+    sizes: ['XS','S','M','L','XL','XXL','3XL','4XL','5XL','6XL'],
+    guideHeaders: ['Talle','Pecho A (cm)','Lar. Espalda B (cm)','Manga C (cm)'],
+    guideRows: [
+      ['XS','106','82','63'],
+      ['S', '114','84','63.5'],
+      ['M', '122','84','64'],
+      ['L', '130','84','64.5'],
+      ['XL','142','86','65'],
+      ['XXL','150','86','65.5'],
+      ['3XL','158','86','66'],
+      ['4XL','166','86','66.5'],
+      ['5XL','178','87','67'],
+      ['6XL','190','88','67.5'],
+    ],
+    note:'Camisa Manga Larga. Medidas en cm.'
+  },
+  primera_piel: {
+    // Primera Piel — botones muestran equiv. + pecho en cm
+    sizes: [
+      'C42 · XXS · 84cm','C44 · XS · 88cm','C46 · S · 92cm',
+      'C48 · M · 96cm','C50 · M · 100cm',
+      'C52 · L · 104cm','C54 · L · 108cm',
+      'C56 · XL · 112cm','C58 · 2XL · 116cm',
+      'C60 · 3XL · 120cm','C62 · 3XL · 124cm',
+      'C64 · 4XL · 128cm','C66 · 4XL · 132cm',
+      'C68 · 5XL · 136cm','C70 · 5XL · 140cm'
+    ],
+    guideHeaders: ['Talla C','Equivalencia','Pecho A (cm)'],
+    guideRows: [
+      ['C42','XXS','84'],
+      ['C44','XS','88'],
+      ['C46','S','92'],
+      ['C48','M','96'],
+      ['C50','M','100'],
+      ['C52','L','104'],
+      ['C54','L','108'],
+      ['C56','XL','112'],
+      ['C58','2XL','116'],
+      ['C60','3XL','120'],
+      ['C62','3XL','124'],
+      ['C64','4XL','128'],
+      ['C66','4XL','132'],
+      ['C68','5XL','136'],
+      ['C70','5XL','140'],
+    ],
+    note:'Primera Piel Superior — T-shirt, buzo, campera base. Cada botón muestra Talla C · Equivalencia · Perímetro de pecho. Medí el contorno de tu pecho y elegí el talle más cercano.'
+  },
+  camp_liviana: {
+    // Campera Liviana S-4XL / Chaleco Reflectivo XS-4XL — se elige talle único
+    sizes: ['XS','S','M','L','XL','XXL','3XL','4XL'],
+    guideHeaders: ['Talle','1/2 Pecho C.L. (cm)','Alt. Espalda C.L. (cm)','Altura (cm) Chaleco','Pecho (cm) Chaleco'],
+    guideRows: [
+      ['XS','—',  '—',  '167–171','110–114'],
+      ['S', '53','70','170–174','114–118'],
+      ['M', '56','72','173–177','118–122'],
+      ['L', '59','74','176–180','122–126'],
+      ['XL','62','76','179–183','126–132'],
+      ['XXL','65','78','182–186','132–134'],
+      ['3XL','68','80','185–189','134–138'],
+      ['4XL','71','82','188–192','138–142'],
+    ],
+    note:'Campera Liviana (S–4XL) y Chaleco Reflectivo (XS–4XL). Medidas en cm. C.L. = Campera Liviana.'
+  },
+  pantalon: {
+    // Pantalón usa "Talle C" — botones muestran cintura en cm para fácil identificación
+    sizes: [
+      'C42 · 68 cm','C43 · 70 cm','C44 · 73 cm','C45 · 75 cm',
+      'C46 · 78 cm','C47 · 80 cm','C48 · 83 cm','C49 · 85 cm',
+      'C50 · 88 cm','C51 · 90 cm','C52 · 93 cm','C54 · 98 cm',
+      'C56 · 103 cm','C58 · 108 cm','C60 · 113 cm','C62 · 118 cm',
+      'C64 · 123 cm','C66 · 128 cm','C68 · 133 cm','C70 · 138 cm',
+      'C72 · 143 cm','C74 · 148 cm'
+    ],
+    guideHeaders: ['Talle C','Cintura (cm)','Cadera (cm)'],
+    guideRows: [
+      ['C42','68','90'],
+      ['C43','70','92'],
+      ['C44','73','94'],
+      ['C45','75','96'],
+      ['C46','78','98'],
+      ['C47','80','100'],
+      ['C48','83','102'],
+      ['C49','85','104'],
+      ['C50','88','106'],
+      ['C51','90','108'],
+      ['C52','93','110'],
+      ['C54','98','114'],
+      ['C56','103','118'],
+      ['C58','108','122'],
+      ['C60','113','126'],
+      ['C62','118','130'],
+      ['C64','123','134'],
+      ['C66','128','138'],
+      ['C68','133','142'],
+      ['C70','138','146'],
+      ['C72','143','150'],
+      ['C74','148','154'],
+    ],
+    note:'Pantalón — Talle C (sistema europeo). En cada botón se indica el Talle C y la cintura correspondiente en cm. Medí tu cintura y elegí el talle más cercano.'
+  }
+};
+
+const SHOE_SIZES = ['35','36','37','38','39','40','41','42','43','44','45','46','47','48'];
+const SHOE_CM    = {'35':'22.3','36':'23.0','37':'23.7','38':'24.3','39':'25.0','40':'25.7','41':'26.3','42':'27.0','43':'27.7','44':'28.3','45':'29.0','46':'29.7','47':'30.3','48':'31.0'};
+
+const SOCK_OPTIONS = [
+  { v:'S', label:'S  (35–38)' },
+  { v:'M', label:'M  (39–42)' },
+  { v:'L', label:'L  (43–46)' }
+];
+
+const GARMENTS = [
+  { id:'mamelucos',       name:'Mamelucos',                type:'custom',  req:true },
+  { id:'chomba',          name:'Chomba Manga Larga',        type:'custom',  req:true },
+  { id:'campera_abrigo',  name:'Campera de Abrigo',         type:'custom',  req:true },
+  { id:'camisa',          name:'Camisa Manga Larga',        type:'custom',  req:true },
+  { id:'primera_piel',    name:'Primera Piel',              type:'custom',  req:true },
+  { id:'camp_liviana',    name:'Campera Liviana y Chaleco', type:'custom',  req:true },
+  { id:'pantalon',        name:'Pantalón',                  type:'custom',  req:true },
+  { id:'calzado',         name:'Calzado',                   type:'shoes',   req:true },
+  { id:'medias',          name:'Medias',                    type:'socks',   req:true },
+  { id:'varios',          name:'Varios / Observaciones',    type:'text',    req:false }
+];
+
+const REQ_GARMENTS = GARMENTS.filter(g => g.req);
+
+/* ================================================
+   STATE
+   ================================================ */
+let initials = '';
+let nombre = '';
+let sel = {};          // { garmentId: value }
+
+/* ================================================
+   NAVIGATION
+   ================================================ */
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+}
+
+function showTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (tab === 'supervisor') {
+    loadSupervisor();
+    showScreen('supervisor');
+  } else {
+    unsubscribeSupervisor();
+    showScreen(initials ? 'form' : 'login');
+  }
+}
+
+/* ================================================
+   LOGIN
+   ================================================ */
+async function doLogin() {
+  const inpNombre = document.getElementById('inp-nombre');
+  const inpIni   = document.getElementById('inp-initials');
+  const nomVal   = inpNombre.value.trim();
+  const iniRaw   = inpIni.value.trim().toUpperCase();
+
+  // Nombre es obligatorio
+  if (!nomVal) {
+    inpNombre.classList.add('error');
+    inpNombre.focus();
+    setTimeout(() => inpNombre.classList.remove('error'), 1500);
+    return;
+  }
+  // Iniciales: si se ingresaron deben ser exactamente 5 letras
+  if (iniRaw && iniRaw.length !== 5) {
+    inpIni.classList.add('error');
+    inpIni.focus();
+    setTimeout(() => inpIni.classList.remove('error'), 1500);
+    return;
+  }
+
+  const btn = document.getElementById('btn-login');
+  btn.disabled = true;
+  btn.textContent = 'Cargando…';
+
+  // Clave de identificación: iniciales si existen, sino el nombre en mayúsculas
+  const key = iniRaw || nomVal.toUpperCase().replace(/\s+/g, '_').slice(0, 20);
+  const existing = await dbLoad(key);
+  sel = existing?.sel ? { ...existing.sel } : {};
+
+  initials = key;
+  nombre = nomVal;
+  document.getElementById('pill-initials').textContent = iniRaw || nomVal.split(' ')[0];
+  buildForm();
+  showScreen('form');
+
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3.5 8.5h10M9 4l5 4.5L9 13"/></svg> Ingresar`;
+}
+
+function doLogout() {
+  initials = '';
+  nombre = '';
+  sel = {};
+  document.getElementById('inp-initials').value = '';
+  document.getElementById('inp-nombre').value = '';
+  showScreen('login');
+}
+
+function doEdit() {
+  buildForm();
+  showScreen('form');
+}
+
+/* ================================================
+   BUILD FORM
+   ================================================ */
+function buildForm() {
+  const container = document.getElementById('garments-container');
+  container.innerHTML = '';
+
+  GARMENTS.forEach((g, idx) => {
+    const card = document.createElement('div');
+    card.className = 'g-card' + (sel[g.id] ? ' done' : '');
+    card.id = 'gc-' + g.id;
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'g-header';
+    header.onclick = () => toggleCard(g.id);
+
+    const numDiv = document.createElement('div');
+    numDiv.className = 'g-num';
+    numDiv.id = 'gnum-' + g.id;
+    numDiv.innerHTML = sel[g.id]
+      ? '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-6"/></svg>'
+      : String(idx + 1);
+
+    const textDiv = document.createElement('div');
+    textDiv.className = 'g-text';
+
+    const nameEl = document.createElement('div');
+    nameEl.className = 'g-name';
+    nameEl.textContent = g.name;
+
+    const selEl = document.createElement('div');
+    selEl.id = 'gsel-' + g.id;
+    if (sel[g.id]) {
+      selEl.className = 'g-sel';
+      selEl.textContent = dispValue(g, sel[g.id]);
+    } else if (g.type === 'text') {
+      selEl.className = 'g-none';
+      selEl.textContent = 'Opcional';
+    } else {
+      selEl.className = 'g-none';
+      selEl.textContent = 'Sin seleccionar';
+    }
+
+    textDiv.appendChild(nameEl);
+    textDiv.appendChild(selEl);
+
+    const chevron = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    chevron.setAttribute('viewBox','0 0 18 18');
+    chevron.setAttribute('fill','currentColor');
+    chevron.classList.add('g-chevron');
+    chevron.innerHTML = '<path d="M4 6l5 5 5-5"/>';
+
+    header.appendChild(numDiv);
+    header.appendChild(textDiv);
+    header.appendChild(chevron);
+    card.appendChild(header);
+
+    // Body
+    const body = document.createElement('div');
+    body.className = 'g-body';
+    body.id = 'gbody-' + g.id;
+    body.innerHTML = buildBody(g);
+    card.appendChild(body);
+
+    container.appendChild(card);
+  });
+
+  // Restore textarea value
+  const variosInput = document.getElementById('varios-ta');
+  if (variosInput && sel['varios']) variosInput.value = sel['varios'];
+
+  updateProgress();
+
+  // Auto-open first incomplete required
+  const firstIncomplete = REQ_GARMENTS.find(g => !sel[g.id]);
+  if (firstIncomplete) openCard(firstIncomplete.id);
+}
+
+function buildBody(g) {
+  if (g.type === 'custom') {
+    const d = GARMENT_DATA[g.id];
+    const guideHeaders = d.guideHeaders.map(h => `<th>${h}</th>`).join('');
+    const guideRows = d.guideRows.map(row =>
+      `<tr>${row.map((c,i) => i===0 ? `<td><strong>${c}</strong></td>` : `<td>${c}</td>`).join('')}</tr>`
+    ).join('');
+    const note = d.note ? `<div style="font-size:11px;color:var(--fg-3);padding:8px 12px;border-top:1px solid var(--border)">${d.note}</div>` : '';
+
+    // Special two-line display for Talle C garments (pantalon & primera_piel)
+    const isCStyle = (g.id === 'pantalon' || g.id === 'primera_piel');
+
+    let btns, finder = '';
+    if (isCStyle) {
+      btns = d.sizes.map(s => {
+        const parts = s.split(' · ');
+        let mainTxt, subTxt, cmVal;
+        if (g.id === 'pantalon') {
+          // 'C42 · 68 cm' → main: 68 cm, sub: C42
+          mainTxt = parts[1] || s;
+          subTxt  = parts[0];
+          cmVal   = parseInt(parts[1]) || 0;
+        } else {
+          // 'C46 · S · 92cm' → main: 92 cm, sub: C46 · S
+          mainTxt = (parts[2] || s).replace('cm',' cm');
+          subTxt  = parts.slice(0,2).join(' · ');
+          cmVal   = parseInt(parts[2]) || 0;
+        }
+        const sel_class = sel[g.id]===s ? ' selected' : '';
+        return `<button class="size-btn size-btn-2line${sel_class}" data-cm="${cmVal}" onclick="pickSize('${g.id}',this,'${s}')">
+          <span class="size-main">${mainTxt}</span>
+          <span class="size-sub">${subTxt}</span>
+        </button>`;
+      }).join('');
+
+      const measureLabel = g.id === 'pantalon' ? 'Tu cintura (cm):' : 'Tu pecho (cm):';
+      finder = `
+        <div class="size-finder" id="finder-${g.id}">
+          <label>${measureLabel}</label>
+          <input type="number" min="50" max="200" placeholder="ej: 90"
+            oninput="finderHighlight('${g.id}', this.value)"
+            onchange="finderSelect('${g.id}', this.value)">
+          <span class="finder-result" id="finder-res-${g.id}"></span>
+        </div>`;
+    } else {
+      btns = d.sizes.map(s =>
+        `<button class="size-btn${sel[g.id]===s?' selected':''}" onclick="pickSize('${g.id}',this,'${s}')">${s}</button>`
+      ).join('');
+    }
+
+    return `
+      ${finder}
+      <button class="guide-btn" onclick="toggleGuide(this)">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="6.5" cy="6.5" r="5.5"/><path d="M6.5 9V6.5m0-3h.01"/>
+        </svg>
+        Ver guía de talles
+      </button>
+      <div class="guide-table-wrap" hidden>
+        <table class="guide-table">
+          <thead><tr>${guideHeaders}</tr></thead>
+          <tbody>${guideRows}</tbody>
+        </table>
+        ${note}
+      </div>
+      <div class="size-grid" id="grid-${g.id}">${btns}</div>`;
+  }
+
+  if (g.type === 'shoes') {
+    const guide = SHOE_SIZES.map(s =>
+      `<tr><td><strong>${s}</strong></td><td>${SHOE_CM[s] || '—'} cm</td></tr>`
+    ).join('');
+    const btns = SHOE_SIZES.map(s =>
+      `<button class="size-btn${sel[g.id]===s?' selected':''}" onclick="pickSize('${g.id}',this,'${s}')">${s}</button>`
+    ).join('');
+    return `
+      <button class="guide-btn" onclick="toggleGuide(this)">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="6.5" cy="6.5" r="5.5"/><path d="M6.5 9V6.5m0-3h.01"/>
+        </svg>
+        Ver equivalencia de talles
+      </button>
+      <div class="guide-table-wrap" hidden>
+        <table class="guide-table">
+          <thead><tr><th>Talle EU</th><th>Longitud pie</th></tr></thead>
+          <tbody>${guide}</tbody>
+        </table>
+        <div style="font-size:11px;color:var(--fg-3);padding:8px 12px;border-top:1px solid var(--border)">Sistema EU (Portwest Footwear). Medida del pie en cm.</div>
+      </div>
+      <div class="size-grid">${btns}</div>`;
+  }
+
+  if (g.type === 'socks') {
+    const btns = SOCK_OPTIONS.map(o =>
+      `<button class="size-btn${sel[g.id]===o.v?' selected':''}" style="min-width:108px" onclick="pickSize('${g.id}',this,'${o.v}')">${o.label}</button>`
+    ).join('');
+    return `<div style="font-size:12px;color:var(--fg-3);margin-bottom:12px">Según tu número de calzado EU</div>
+            <div class="size-grid">${btns}</div>`;
+  }
+
+  if (g.type === 'text') {
+    return `<textarea id="varios-ta" class="textarea-field"
+              placeholder="Ej: Guantes talle L, protección auditiva M..."
+              onchange="pickText('${g.id}',this.value)"
+              oninput="pickText('${g.id}',this.value)"></textarea>`;
+  }
+  return '';
+}
+
+function dispValue(g, v) {
+  if (g.type === 'socks') return SOCK_OPTIONS.find(o => o.v === v)?.label || v;
+  return v;
+}
+
+/* ================================================
+   CARD INTERACTIONS
+   ================================================ */
+function openCard(id) {
+  const card = document.getElementById('gc-' + id);
+  if (card) card.classList.add('open');
+}
+
+function toggleCard(id) {
+  const card = document.getElementById('gc-' + id);
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.g-card.open').forEach(c => c.classList.remove('open'));
+  if (!isOpen) {
+    card.classList.add('open');
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function toggleGuide(btn) {
+  const wrap = btn.nextElementSibling;
+  const hidden = wrap.hidden;
+  wrap.hidden = !hidden;
+  btn.querySelector('svg + :not(svg)');
+  const textNode = [...btn.childNodes].find(n => n.nodeType === 3);
+  if (textNode) textNode.textContent = hidden ? ' Ocultar guía de talles' : ' Ver guía de talles';
+}
+
+function pickSize(garmentId, btn, value) {
+  sel[garmentId] = value;
+
+  // Toggle selected state on buttons
+  const grid = btn.closest('.size-grid');
+  grid.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+
+  // Update card header
+  const card = document.getElementById('gc-' + garmentId);
+  card.classList.add('done');
+
+  const numEl = document.getElementById('gnum-' + garmentId);
+  numEl.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-6"/></svg>';
+
+  const selEl = document.getElementById('gsel-' + garmentId);
+  const g = GARMENTS.find(x => x.id === garmentId);
+  selEl.className = 'g-sel';
+  selEl.textContent = dispValue(g, value);
+
+  updateProgress();
+
+  // Auto-advance to next incomplete required garment
+  const reqIdx = REQ_GARMENTS.findIndex(g => g.id === garmentId);
+  const next = REQ_GARMENTS.slice(reqIdx + 1).find(g => !sel[g.id]);
+  if (next) {
+    setTimeout(() => {
+      document.querySelectorAll('.g-card.open').forEach(c => c.classList.remove('open'));
+      openCard(next.id);
+      document.getElementById('gc-' + next.id).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 320);
+  }
+}
+
+function pickText(garmentId, value) {
+  sel[garmentId] = value;
+}
+
+/* ================================================
+   MEASUREMENT FINDER (pantalon / primera_piel)
+   ================================================ */
+function _findClosestBtn(garmentId, cm) {
+  const grid = document.getElementById('grid-' + garmentId);
+  if (!grid) return null;
+  const btns = [...grid.querySelectorAll('.size-btn')];
+  let best = null, bestDiff = Infinity;
+  btns.forEach(btn => {
+    const bCm = parseInt(btn.dataset.cm) || 0;
+    const diff = Math.abs(bCm - cm);
+    if (diff < bestDiff) { bestDiff = diff; best = btn; }
+  });
+  return best;
+}
+
+function finderHighlight(garmentId, val) {
+  const cm = parseInt(val);
+  const resEl = document.getElementById('finder-res-' + garmentId);
+  const grid  = document.getElementById('grid-' + garmentId);
+  if (!grid) return;
+  grid.querySelectorAll('.size-btn').forEach(b => b.classList.remove('closest'));
+  if (!cm || cm < 50) { if (resEl) resEl.textContent = ''; return; }
+  const best = _findClosestBtn(garmentId, cm);
+  if (best) {
+    best.classList.add('closest');
+    best.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    const mainTxt = best.querySelector('.size-main')?.textContent || '';
+    const subTxt  = best.querySelector('.size-sub')?.textContent  || '';
+    if (resEl) resEl.textContent = `→ ${subTxt} (${mainTxt})`;
+  }
+}
+
+function finderSelect(garmentId, val) {
+  const cm = parseInt(val);
+  if (!cm || cm < 50) return;
+  const best = _findClosestBtn(garmentId, cm);
+  if (best) best.click();
+}
+
+/* ================================================
+   PROGRESS
+   ================================================ */
+function updateProgress() {
+  const done = REQ_GARMENTS.filter(g => sel[g.id]);
+  const total = REQ_GARMENTS.length;
+  const pct = Math.round((done.length / total) * 100);
+
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = `${done.length} de ${total}`;
+
+  // Chips
+  const chips = document.getElementById('chips-row');
+  chips.innerHTML = REQ_GARMENTS.map(g => {
+    const v = sel[g.id];
+    const short = g.name.split(' ')[0];
+    return `<span class="chip${v ? '' : ' missing'}">${short}: ${v ? dispValue(g, v) : '—'}</span>`;
+  }).join('');
+}
+
+/* ================================================
+   SUBMIT
+   ================================================ */
+async function doSubmit() {
+  const missing = REQ_GARMENTS.filter(g => !sel[g.id]);
+  const warnEl = document.getElementById('warn-missing');
+
+  if (missing.length) {
+    warnEl.style.display = 'block';
+    warnEl.textContent = `Falta completar: ${missing.map(g => g.name).join(', ')}`;
+
+    document.querySelectorAll('.g-card.open').forEach(c => c.classList.remove('open'));
+    openCard(missing[0].id);
+    document.getElementById('gc-' + missing[0].id).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  warnEl.style.display = 'none';
+
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = true;
+  btn.innerHTML = `<svg width="17" height="17" viewBox="0 0 17 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+    <circle cx="8.5" cy="8.5" r="6.5" stroke-dasharray="4 2"/>
+  </svg> Guardando…`;
+
+  const today = new Date().toLocaleDateString('es-AR');
+  const payload = {
+    iniciales: initials,
+    nombre: nombre,
+    fecha: today,
+    ...Object.fromEntries(GARMENTS.map(g => [g.id, sel[g.id] || '']))
+  };
+
+  await dbSave(initials, nombre, { ...sel }, today);
+
+  renderSuccess(payload);
+  showScreen('success');
+}
+
+/* ================================================
+   SUCCESS SCREEN
+   ================================================ */
+function renderSuccess(payload) {
+  document.getElementById('success-msg').textContent =
+    `¡Listo, ${nombre || initials}! Tus talles quedaron guardados para 2027.`;
+
+  const rows = GARMENTS.filter(g => g.id !== 'varios' && sel[g.id]).map(g =>
+    `<div class="sel-row">
+       <span class="sel-key">${g.name}</span>
+       <span class="sel-val">${dispValue(g, sel[g.id])}</span>
+     </div>`
+  ).join('');
+
+  document.getElementById('success-summary').innerHTML = rows;
+}
+
+/* ================================================
+   SUPERVISOR
+   ================================================ */
+function loadSupervisor() {
+  subscribeSupervisor(renderSupervisor);
+}
+
+function renderSupervisor(entries) {
+  const count = entries.length;
+  const completos = entries.filter(([, d]) => REQ_GARMENTS.every(g => d.sel?.[g.id])).length;
+
+  document.getElementById('kpi-total').textContent = count;
+  document.getElementById('kpi-completos').textContent = completos;
+
+  const tablesEl = document.getElementById('sup-tables');
+  tablesEl.innerHTML = '';
+
+  if (count === 0) {
+    tablesEl.innerHTML = `
+      <div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="12" width="32" height="28" rx="4"/>
+          <path d="M16 12V10a4 4 0 018 0v2M20 24h8M20 30h5"/>
+        </svg>
+        <p>Ningún técnico ha registrado sus talles aún.</p>
+      </div>`;
+    return;
+  }
+
+  const measGarments = GARMENTS.filter(g => g.type !== 'text');
+
+  measGarments.forEach(g => {
+    let sizeList, labelFn;
+    if (g.type === 'custom') {
+      sizeList = GARMENT_DATA[g.id].sizes;
+      labelFn = s => s;
+    } else if (g.type === 'shoes') {
+      sizeList = SHOE_SIZES;
+      labelFn = s => s;
+    } else {
+      // socks
+      sizeList = SOCK_OPTIONS.map(o => o.v);
+      labelFn = s => SOCK_OPTIONS.find(o => o.v === s)?.label || s;
+    }
+
+    const counts = {};
+    sizeList.forEach(s => { counts[s] = 0 });
+    entries.forEach(([, d]) => {
+      const v = d.sel?.[g.id];
+      if (v !== undefined && counts[v] !== undefined) counts[v]++;
+    });
+    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+    const wrap = document.createElement('div');
+    wrap.className = 'tbl-wrap';
+
+    const headerCells = sizeList.map(s => `<th>${labelFn(s)}</th>`).join('');
+    const dataCells = sizeList.map(s => {
+      const c = counts[s] || 0;
+      return `<td>${c > 0 ? `<span class="cnt">${c}</span>` : `<span class="cnt-zero">—</span>`}</td>`;
+    }).join('');
+
+    wrap.innerHTML = `
+      <table class="sup-table">
+        <thead><tr><th>${g.name}</th>${headerCells}<th>Total</th></tr></thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--fg-3);font-size:12px">Cantidad</td>
+            ${dataCells}
+            <td><span class="cnt-total">${total}</span></td>
+          </tr>
+        </tbody>
+      </table>`;
+    tablesEl.appendChild(wrap);
+  });
+
+  // Initials list
+  const listWrap = document.createElement('div');
+  listWrap.className = 'tbl-wrap';
+  listWrap.style.marginTop = '8px';
+
+  const rows = entries.map(([init, d]) => {
+    const done = REQ_GARMENTS.filter(g => d.sel?.[g.id]).length;
+    const isComplete = done === REQ_GARMENTS.length;
+    return `<tr>
+      <td style="font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:.08em">${init}</td>
+      <td style="color:var(--fg-3);font-size:12px">${d.fecha || '—'}</td>
+      <td><span class="chip${isComplete ? '' : ' missing'}" style="display:inline-block">${done}/${REQ_GARMENTS.length} ${isComplete ? '✓' : ''}</span></td>
+    </tr>`;
+  }).join('');
+
+  listWrap.innerHTML = `
+    <table class="sup-table">
+      <thead><tr><th>Técnico</th><th>Fecha</th><th>Estado</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+
+  const eyebrow = document.createElement('div');
+  eyebrow.className = 'section-eyebrow';
+  eyebrow.style.marginTop = '20px';
+  eyebrow.textContent = 'Técnicos registrados';
+  tablesEl.appendChild(eyebrow);
+  tablesEl.appendChild(listWrap);
+}
+
+/* ================================================
+   INIT
+   ================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  // Pre-warm db connection so first load/save is fast
+  getDB();
+
+  const inp = document.getElementById('inp-initials');
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin() });
+  inp.addEventListener('input', () => {
+    inp.value = inp.value.toUpperCase();
+    inp.classList.remove('error');
+  });
+});
+</script>
